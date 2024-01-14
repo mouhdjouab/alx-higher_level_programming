@@ -1,23 +1,20 @@
 #!/usr/bin/python3
-""" Script that lists all states from the database hbtn_0e_0_usa """
-import MySQLdb
-from sys import argv
+"""0x0F. Python - Object-relational mapping - task 0. Get all states"""
 
-# The code should not be executed when imported
 if __name__ == '__main__':
+    import sys
+    import MySQLdb
 
-    # make a connection to the database
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                         passwd=argv[2], db=argv[3])
+    if len(sys.argv) != 4:
+        sys.exit('Use: 0-select_states.py <mysql username> <mysql password>'
+                 ' <database name>')
 
-    # It gives us the ability to have multiple seperate working environments
-    # through the same connection to the database.
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states")
-
-    rows = cur.fetchall()
-    for i in rows:
-        print(i)
-    # Clean up process
+    conn = MySQLdb.connect(host='localhost', port=3306, user=sys.argv[1],
+                           passwd=sys.argv[2], db=sys.argv[3], charset='utf8')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    query_rows = cur.fetchall()
+    for row in query_rows:
+        print(row)
     cur.close()
-    db.close()
+    conn.close()
