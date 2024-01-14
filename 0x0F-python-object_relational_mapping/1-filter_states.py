@@ -10,7 +10,7 @@ if __name__ == "__main__":
     cur.execute("SELECT * FROM ORDER BY states.id")
     rows = cur.fetchall()
     for row in rows:
-        if row[0]=="N":
+        if row[0] == "N":
             continue
         print(row)
 
