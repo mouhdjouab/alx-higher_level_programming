@@ -1,8 +1,8 @@
-
 #!/usr/bin/python3
-# Sends a request to a given URL and displays the response body.
+"""Sends a request to a given URL
+ displays the response body.
 
-
+"""
 import sys
 import urllib.error
 import urllib.request
