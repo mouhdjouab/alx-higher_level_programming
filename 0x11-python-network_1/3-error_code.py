@@ -9,4 +9,4 @@ try:
     with urlopen(Request(sys.argv[1])) as response:
         body = response.read().decode("utf-8")
 except HTTPError as e:
-    print('Error code: ', e.code)
+    print("Error code: {}".format(e.code))

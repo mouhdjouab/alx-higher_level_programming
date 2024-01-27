@@ -5,8 +5,8 @@
 import sys
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode
-url = f"{sys.argv[1]}"
-vals = {"email ": f"{sys.argv[2]}"}
+url = sys.argv[1]
+vals = {"email ": sys.argv[2]}
 data = urlencode(vals).encode("ascii")
 with urlopen(Request(url, data)) as response:
     print(response.read().decode("utf-8"))
