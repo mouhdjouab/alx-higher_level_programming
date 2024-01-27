@@ -1,17 +1,18 @@
 #!/usr/bin/python3
-# Sends a POST request to a given URL with a given email.
+"""Sends a POST request to URL with  email.
 
-
+"""
 import sys
 import urllib.parse
 import urllib.request
 
 
 if __name__ == "__main__":
-
+    url = sys.argv[1]
     vals = {"email": sys.argv[2]}
-    donne = urllib.parse.urlencode(vals).encode("ascii")
+    donnes = urllib.parse.urlencode(vals).encode("ascii")
 
-    req = urllib.request.Request(sys.argv[1], donne)
+    req = urllib.request.Request(url, donnes)
     with urllib.request.urlopen(req) as response:
-        print(response.read().decode("utf-8"))
+        bod = response.read().decode("utf-8")
+        print(bod)
