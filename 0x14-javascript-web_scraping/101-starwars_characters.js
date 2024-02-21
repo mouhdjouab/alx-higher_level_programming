@@ -2,7 +2,7 @@
 // using Star Wars API, prints all `characters`
 const request = require('request');
 
-function get7Name (url) {
+function get7Name(url) {
   return new Promise((resolve, reject) => {
     request(url, (error, response, body) => {
       if (error) {
@@ -13,7 +13,7 @@ function get7Name (url) {
   });
 }
 
-async function charsInFilm (urlList) {
+async function charsInFilm(urlList) {
   try {
     let name;
     for (const url of urlList) {
